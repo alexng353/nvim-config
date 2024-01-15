@@ -12,11 +12,11 @@ for _, source in ipairs {
 end
 
 -- Load custom vimscript user config
-vim.cmd('autocmd VimEnter * silent! source ~/.nvimrc')
-vim.api.nvim_set_option("clipboard","unnamed")
+vim.cmd "autocmd VimEnter * silent! source ~/.nvimrc"
+vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- Load ./shortcuts.lua
-require("custom.shortcuts")
+require "custom.shortcuts"
 
 if astronvim.default_colorscheme then
   if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
@@ -29,3 +29,5 @@ end
 
 require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
 vim.cmd.colorscheme "catppuccin-macchiato"
+
+vim.filetype.add { extension = { templ = "templ" } }
