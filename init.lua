@@ -16,7 +16,7 @@ vim.cmd "autocmd VimEnter * silent! source ~/.nvimrc"
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- Load ./shortcuts.lua
-require "custom.shortcuts"
+require "custom.custom"
 
 if astronvim.default_colorscheme then
   if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
