@@ -1,5 +1,6 @@
 return {
   "zbirenbaum/copilot.lua",
+  enabled = false,
   cmd = "Copilot",
   build = ":Copilot auth",
   event = "InsertEnter",
@@ -12,11 +13,11 @@ return {
         jump_next = "]]",
         accept = "<CR>",
         refresh = "gr",
-        open = "<M-CR>"
+        open = "<M-CR>",
       },
       layout = {
         position = "right", -- bottom | top | left | right
-        ratio = 0.3
+        ratio = 0.3,
       },
     },
     suggestion = {
@@ -32,7 +33,7 @@ return {
         dismiss = "<C-]>",
       },
     },
-    copilot_node_command = 'node', -- Node.js version must be > 18.x
+    copilot_node_command = "node", -- Node.js version must be > 18.x
     server_opts_overrides = {},
-  }
+  },
 }
