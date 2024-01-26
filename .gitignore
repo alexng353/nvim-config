@@ -1,6 +1,5 @@
 # Project gitignore
 .luarc.json
-after
 coc-settings.json
 colors
 docs
