@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+
+require("alexng353")
 local treesitter = require "plugins/treesitter"
 local leap = require "plugins/leap"
 
@@ -15,19 +18,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-{
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-},
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  },
+  { 
+    'nvim-telescope/telescope.nvim', 
+    tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
 
@@ -41,7 +49,6 @@ require("lazy").setup({
   lockfile = vim.fn.stdpath("config") .. "/lazy-alex-lock.json", -- lockfile generated after running update.
 })
 
-vim.g.mapleader = " "
 
 -- Load custom vimscript user config
 vim.cmd('autocmd VimEnter * silent! source ~/.nvimrc')
@@ -51,24 +58,11 @@ vim.cmd('autocmd VimEnter * silent! hi ColorColumn ctermbg=#242424 guibg=#242424
 
 vim.api.nvim_set_option("clipboard","unnamed")
 
--- keybinds
-local sk = vim.api.nvim_set_keymap
-sk("t", "<Esc><C-n>", "<C-\\><C-n>", { noremap = true, silent = true })
-
-sk("n", "<Leader>w", ":w<Cr>:echo 'wrote to file'<Cr>", { noremap = true, silent = true })
-sk("n", "<Leader>qq", ":q<Cr>", { noremap = true, silent = true })
-
-sk("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-sk("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-sk("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-sk("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
 vim.wo.number = true
 vim.wo.relativenumber = true
 
 vim.cmd.colorscheme "catppuccin-macchiato"
-
-sk('v', '<Tab>', ':normal I<Tab><CR>', { noremap = true })
 
 -- Harpoon stuff
 -- sk("n", "", "", { noremap = true, silent = true })
